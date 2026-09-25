@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
+    "build:api": "node scripts/build-api.mjs",
+    "build": "npm run build:api && tsc -b && vite build",
     "lint": "oxlint",
     "check": "node scripts/check.ts && node scripts/check-pdf.ts",
     "preview": "vite preview"
@@ -21,6 +22,7 @@
     "@types/react": "^19.2.18",
     "@types/react-dom": "^19.2.7",
     "@vitejs/plugin-react": "^6.1.1",
+    "esbuild": "^0.28.2",
     "oxlint": "^1.81.0",
     "typescript": "~6.0.2",
     "vite": "^8.3.0"

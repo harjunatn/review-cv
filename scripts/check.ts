@@ -1,4 +1,4 @@
-import { handleReviewRequest } from '../api/handleReview.ts'
+import { handleReviewRequest } from '../server/handleReview.ts'
 import { itemsToText } from '../src/lib/textItems.ts'
 import { parseReview, ReviewError } from '../src/lib/schema.ts'
 

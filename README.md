@@ -1,32 +1,21 @@
-# React + TypeScript + Vite
+# Review CV
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Aplikasi React untuk membandingkan CV (PDF) dengan job description memakai Gemini.
 
-Currently, two official plugins are available:
+## Setup lokal
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+1. Salin `.env.example` ke `.env.local`
+2. Isi `GEMINI_API_KEY`
+3. Jalankan `npm install` lalu `npm run dev`
+4. Buka http://localhost:5173
 
-## React Compiler
+PDF dibaca di browser; yang dikirim ke server hanya teks CV dan teks lowongan.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Deploy Vercel
 
-## Expanding the Oxlint configuration
+1. Push repo, hubungkan ke Vercel
+2. Set Environment Variable `GEMINI_API_KEY` (Production + Preview), tanpa prefix `VITE_`
+3. Redeploy setelah menyimpan variable
+4. Opsional: batasi `POST /api/review` di Vercel Firewall
 
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
-```
-
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Build otomatis menghasilkan `api/review.js` (bundle serverless).

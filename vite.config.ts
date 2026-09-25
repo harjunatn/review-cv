@@ -1,7 +1,7 @@
 import react from '@vitejs/plugin-react'
 import type { IncomingMessage, ServerResponse } from 'node:http'
 import { loadEnv, defineConfig, type Plugin } from 'vite'
-import { handleReviewRequest } from './api/handleReview.ts'
+import { handleReviewRequest } from './server/handleReview.ts'
 import { LIMITS } from './src/lib/limits.ts'
 
 function readRaw(req: IncomingMessage): Promise<string> {

@@ -1,9 +1,9 @@
 {
-  "framework": "vite",
   "rewrites": [{ "source": "/((?!api/).*)", "destination": "/index.html" }],
   "functions": {
-    "api/review.ts": {
-      "maxDuration": 60
+    "api/review.js": {
+      "maxDuration": 60,
+      "memory": 1024
     }
   }
 }
